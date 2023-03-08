@@ -7,5 +7,5 @@
 #'
 #' @examples test(x="Hello, World!)
 test <- function(x){
-  Print(paste("Text:", x))
+  print(paste("Text:", x))
 }
