@@ -1,11 +1,11 @@
-Package: temp
+Package: popSwissr
 Type: Package
-Title: What the Package Does (Title Case)
+Title: Functions for portfolio optimization
 Version: 0.1.0
-Author: Who wrote it
-Maintainer: The package maintainer <yourself@somewhere.net>
-Description: More about what it does (maybe more than one line)
-    Use four spaces when indenting paragraphs within the Description.
-License: What license is it under?
+Author: Giannuzzi, Heinzer, Läderach, Meier
+Maintainer: The package maintainer <gianndon@students.zhaw.ch>
+Description: This R-package is for the lecture WI-PM4. It contains
+    several functions for a portfolio algorithm.
+License: No license available
 Encoding: UTF-8
 LazyData: true
