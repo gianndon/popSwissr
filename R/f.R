@@ -1,3 +1,12 @@
+#' f Function
+#'
+#' @param x x-values
+#'
+#' @return sinus plot
+#' @export
+#'
+#' @examples f(x=50)
+#' @examples f(x=50)
 f <- function(x){
   
   # x-vals
