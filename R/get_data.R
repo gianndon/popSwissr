@@ -8,7 +8,7 @@ get_data <- function(symbols, starting_point=Sys.Date()-10*365, end_point=Sys.Da
                          to=end_point,
                          auto.assign=FALSE)[, 6]
   }))
-  colnames(dat) <- symbols
+  #colnames(dat) <- symbols
   # drop na's and return data
   return(na.omit(dat))
   # surpress warnings end block
