@@ -1,4 +1,4 @@
-tp <- function(assets, rf=NaN, p_year=260){
+tp <- function(assets, rf=NA, p_year=260){
   # default rf value
   rf <- get_rf()
   # yearly returns, volatility and covariance
