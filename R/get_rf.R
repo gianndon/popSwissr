@@ -6,5 +6,3 @@ get_rf <- function(){
   rf <- as.numeric(substr(x=pagecode[1], start=1, stop=nchar(pagecode[1])-1))
   return(rf)
 }
-
-
