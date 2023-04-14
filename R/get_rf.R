@@ -1,4 +1,4 @@
-get_rf_ym <- function(){
+get_rf <- function(){
   URL <- "https://www.yourmoney.ch/ym/details/4961368%2C1526%2C1#Tab0"
   pagecode <- xml2::read_html(x=URL)
   pagecode <- rvest::html_nodes(pagecode, css=".detailPrice")
