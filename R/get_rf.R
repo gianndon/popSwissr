@@ -4,6 +4,6 @@ get_rf <- function(){
   pagecode <- rvest::html_nodes(pagecode, css=".detailPrice")
   pagecode <- rvest::html_text(pagecode)
   pagecode_clean <- gsub(" ", "", pagecode, fixed = TRUE)
-  rf <- as.numeric(substr(x=pagecode_clean[1], start=1, stop=nchar(pagecode_clean[1])-1))  # rf return yourmoney
+  rf <- as.numeric(substr(x=pagecode_clean[1], start=1, stop=nchar(pagecode_clean[1])-1))
   return(rf)
 }
