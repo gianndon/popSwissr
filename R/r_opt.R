@@ -1,15 +1,10 @@
-dat <- read.csv(file="Track_Records.csv", header=TRUE, sep=";")
-temp <- as.matrix(dat[, -1])
-assets <- temp[, c(2, 4, 6)]
-
-
-r_opt <- function(assets, r_pf, shorting, p_year=260){
+r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   # import library
   library(nloptr)
   
   # yearly returns, volatility and covariance
-  yearly_return <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
-  yearly_volatility <- apply(X=assets*sqrt(p_year), MARGIN=2, FUN=sd)
+  r <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
+  # yearly_volatility <- apply(X=assets*sqrt(p_year), MARGIN=2, FUN=sd)
   # compute covariance matrix
   Sigma <- p_year*cov(assets)
   
@@ -68,5 +63,5 @@ r_opt <- function(assets, r_pf, shorting, p_year=260){
   weights_pf <- res$solution
   # return
   return(list(var_pf=var_pf, sd_pf=sd_pf, weights_pf=weights_pf))
-} 
+}
   
