@@ -5,5 +5,6 @@ get_rf <- function(){
   pagecode <- rvest::html_text(pagecode)
   pagecode_clean <- gsub(" ", "", pagecode, fixed = TRUE)
   rf <- as.numeric(substr(x=pagecode_clean[1], start=1, stop=nchar(pagecode_clean[1])-1))
+  rf <- rf/100
   return(rf)
 }

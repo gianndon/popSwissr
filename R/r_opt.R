@@ -34,6 +34,7 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   
   # Initial weights
   x0 <- rep(1/3, ncol(Sigma))
+  x0 <- x0/sum(x0)
   
   # set optimization options
   opts <- list("algorithm"="NLOPT_GN_ISRES",
