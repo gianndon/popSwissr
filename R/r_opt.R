@@ -4,24 +4,25 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   
   # yearly returns, volatility and covariance
   r <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
-  # yearly_volatility <- apply(X=assets*sqrt(p_year), MARGIN=2, FUN=sd)
   # compute covariance matrix
-  Sigma <- p_year*cov(assets)
+  Sigma <- cov(assets)
+  # number of assets
+  n <- ncol(Sigma)
   
   # minimize risk
   # objective function
   eval_f <- function(x, Sigma, r, r_pf){
     # !important!: x = weights
-    return(as.numeric(t(x) %*% Sigma %*% x))
+    return(sqrt(t(x) %*% Sigma %*% x))
   }
   
   # lower and upper bounds, with distinction whether shorting is allowed or not
   if(shorting == TRUE){
-    lb <- rep(-3, ncol(Sigma))
-    ub <- rep(3, ncol(Sigma))
+    lb <- rep(-10, n)
+    ub <- rep(10, n)
   }else{
-    lb <- rep(0, ncol(Sigma))
-    ub <- rep(1, ncol(Sigma))
+    lb <- rep(0, n)
+    ub <- rep(1, n)
   }
   
   # Constraints
@@ -33,8 +34,7 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   }
   
   # Initial weights
-  x0 <- rep(1/3, ncol(Sigma))
-  x0 <- x0/sum(x0)
+  x0 <- rep(1/n, n)
   
   # set optimization options
   opts <- list("algorithm"="NLOPT_GN_ISRES",
@@ -59,10 +59,13 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   
   
   # results
-  var_pf <- res$objective
-  sd_pf <- sqrt(res$objective)
-  weights_pf <- res$solution
-  # return
-  return(list(var_pf=var_pf, sd_pf=sd_pf, weights_pf=weights_pf))
-}
+  weights_scal <- res$solution
+  pf_return <- r_pf
+  pf_vola <- as.vector(sqrt(t(weights_scal) %*% Sigma %*% weights_scal)*sqrt(p_year))
   
+  # return
+  return(list(pf_return=pf_return, pf_vola=pf_vola, pf_weights=weights_scal))
+}
+
+r_opt(assets=dat, r_pf=0.057, shorting=TRUE)
+
