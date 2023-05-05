@@ -66,6 +66,3 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   # return
   return(list(pf_return=pf_return, pf_vola=pf_vola, pf_weights=weights_scal))
 }
-
-r_opt(assets=dat, r_pf=0.057, shorting=TRUE)
-

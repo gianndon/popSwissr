@@ -14,5 +14,3 @@ tp <- function(assets, rf=NA, p_year=260){
   # return
   return(list(weights=weights_scal, return=abs(return_TP), volatility=volatility_TP))
 }
-
-tp(assets=dat)

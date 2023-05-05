@@ -59,5 +59,3 @@ mvp_opt <- function(assets, shorting=TRUE, p_year=260){
   return(list(mvp_return=mvp_return, mvp_vola=mvp_vola, mvp_weights=weights_scal))
   
 }
-
-mvp_opt(assets=dat, shorting=FALSE)

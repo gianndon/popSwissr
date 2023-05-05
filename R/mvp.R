@@ -12,5 +12,3 @@ mvp <- function(assets, p_year=260){
   # return
   return(list(weights=weights_scal, return=(return_MVP), volatility=volatility_MVP))
 }
-
-mvp(assets=dat)
