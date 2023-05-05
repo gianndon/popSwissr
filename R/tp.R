@@ -1,4 +1,6 @@
 tp <- function(assets, rf=0.01, p_year=260){
+  # library
+  library(expm)
   # yearly returns, volatility and covariance
   yearly_return <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
   yearly_volatility <- apply(X=assets*sqrt(p_year), MARGIN=2, FUN=sd)
