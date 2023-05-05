@@ -1,6 +1,4 @@
-tp <- function(assets, rf=NA, p_year=260){
-  # default rf value
-  rf <- 0.01
+tp <- function(assets, rf=0.01, p_year=260){
   # yearly returns, volatility and covariance
   yearly_return <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
   yearly_volatility <- apply(X=assets*sqrt(p_year), MARGIN=2, FUN=sd)
