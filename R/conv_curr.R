@@ -1,4 +1,4 @@
-convert_currencies <- function(symbols, starting_point=(Sys.Date()-30*365), end_point=Sys.Date()){
+conv_curr <- function(symbols, starting_point=(Sys.Date()-30*365), end_point=Sys.Date()){
   # supress warnings (start block)
   defaultW <- getOption("warn"); options(warn = -1)
   # convert currencies
