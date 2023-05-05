@@ -10,5 +10,5 @@ tp <- function(assets, rf=0.01, p_year=260){
   return_TP <- t(weights_scal) %*% yearly_return; return_TP <- as.vector(return_TP); names(return_TP) <- "Return Portfolio"
   volatility_TP <- sqrt(t(weights_scal) %*% Sigma %*% weights_scal)*sqrt(260); volatility_TP <- as.vector(volatility_TP); names(volatility_TP) <- "Volatility Portfolio"
   # return
-  return(list(weights=weights_scal, return=abs(return_TP), volatility=volatility_TP))
+  return(c(weights_scal, abs(return_TP), volatility_TP))
 }
