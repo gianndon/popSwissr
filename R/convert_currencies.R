@@ -7,7 +7,7 @@ convert_currencies <- function(symbols, starting_point=(Sys.Date()-30*365), end_
   if ("BTC.USD.Adjusted" %in% colnames(data)){
     data$BTC.USD.Adjusted <- data$USDCHF.X.Adjusted * data$BTC.USD.Adjusted
   }
-  if ("BTC.USD.Adjusted" %in% colnames(data)){
+  if ("TNX.Adjusted" %in% colnames(data)){
     data$TNX.Adjusted <- data$USDCHF.X.Adjusted * data$TNX.Adjusted
   }
   return(data)
