@@ -4,9 +4,9 @@ mvp_opt <- function(assets, shorting=TRUE, p_year=260){
   library(nloptr)
   
   # yearly returns
-  r <- apply(X=dat*p_year, MARGIN=2, FUN=mean)
+  r <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
   # covariance amtrix
-  Sigma <- cov(dat)
+  Sigma <- cov(assets)
   # number of assets
   n <- ncol(Sigma)
   

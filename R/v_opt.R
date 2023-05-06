@@ -7,6 +7,8 @@ v_opt <- function(assets, v_pf, shorting=TRUE, p_year=260){
   r <- apply(X=assets*p_year, MARGIN=2, FUN=mean)
   # compute covariance matrix
   Sigma <- p_year*cov(assets)
+  # number of assets
+  n <- ncol(Sigma)
   
   # Objective function
   eval_f <- function(x, Sigma, r, v_pf){
