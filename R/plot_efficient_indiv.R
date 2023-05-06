@@ -1,6 +1,5 @@
 plot_efficient_indiv <- function(dat, amounts){
-  
-  # definitions
+  # definitions ----
   yearly_returns <- apply(X=dat*260, MARGIN=2, FUN=mean)
   Sigma <- cov(dat)
   
