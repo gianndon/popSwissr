@@ -57,5 +57,5 @@ v_opt <- function(assets, v_pf, shorting=TRUE, p_year=260){
   pf_vola <- v_pf
   
   # return
-  return(list(pf_return=pf_return, pf_vola=pf_vola, pf_weights=weights_scal))
+  return(c(weights_scal, abs(pf_return), pf_vola))
 }

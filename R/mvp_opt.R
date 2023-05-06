@@ -56,6 +56,6 @@ mvp_opt <- function(assets, shorting=TRUE, p_year=260){
   mvp_vola <- as.vector(sqrt(t(weights_scal) %*% Sigma %*% weights_scal)*sqrt(p_year))
   
   # return
-  return(list(mvp_return=mvp_return, mvp_vola=mvp_vola, mvp_weights=weights_scal))
+  return(c(weights_scal, abs(mvp_return), mvp_vola))
   
 }

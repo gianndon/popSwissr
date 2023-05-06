@@ -64,5 +64,5 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   pf_vola <- as.vector(sqrt(t(weights_scal) %*% Sigma %*% weights_scal)*sqrt(p_year))
   
   # return
-  return(list(pf_return=pf_return, pf_vola=pf_vola, pf_weights=weights_scal))
+  return(c(weights_scal, abs(pf_return), pf_vola))
 }
