@@ -35,7 +35,7 @@ mvp_opt <- function(assets, shorting=TRUE, p_year=260){
   # set optimization options
   opts <- list("algorithm"="NLOPT_GN_ISRES",
                "xtol_rel"=1.0e-15,
-               "maxeval"=160000,
+               "maxeval"=1600,
                "print_level"=0,
                "local_opts"=list("algorithm"="NLOPT_LD_MMA",
                                  "xtol_rel"=1.0e-15 ))

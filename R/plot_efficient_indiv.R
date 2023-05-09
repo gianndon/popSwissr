@@ -6,10 +6,10 @@ plot_efficient_indiv <- function(dat, amounts){
   
   # compute mvp & tp weight, returns and volatiolites ----
   # mvp
-  mvp_s <- mvp_opt(assets=dat, shorting=TRUE); mvp_s <- c(mvp_s$mvp_weights, mvp_s$mvp_return, mvp_s$mvp_vola); mvp_s
-  mvp_ns <- mvp_opt(assets=dat, shorting=FALSE); mvp_ns <- c(mvp_ns$mvp_weights, mvp_ns$mvp_return, mvp_ns$mvp_vola); mvp_ns
+  mvp_s <- mvp_opt(assets=dat, shorting=TRUE)  # ; mvp_s <- c(mvp_s$mvp_weights, mvp_s$mvp_return, mvp_s$mvp_vola); mvp_s
+  mvp_ns <- mvp_opt(assets=dat, shorting=FALSE)  # ; mvp_ns <- c(mvp_ns$mvp_weights, mvp_ns$mvp_return, mvp_ns$mvp_vola); mvp_ns
   # tp
-  tp_n <- tp(assets=dat); tp_n <- c(tp_n$weights, tp_n$return, tp_n$volatility); tp_n <- unname(tp_n); tp_n
+  tp_n <- tp(assets=dat)  # ; tp_n <- c(tp_n$weights, tp_n$return, tp_n$volatility); tp_n <- unname(tp_n); tp_n
   # individual
   indiv <- individual(assets=dat, amounts=amounts)
   
@@ -19,7 +19,7 @@ plot_efficient_indiv <- function(dat, amounts){
                        MVP_opt_not_short=mvp_ns,
                        TP_normal_function_short=tp_n,
                        individual=indiv)
-  row.names(dat_cl) <- c(names(dat_raw[,-2]), "return", "vola"); dat_cl
+  row.names(dat_cl) <- c(names(dat[,-2]), "return", "vola"); dat_cl
   
   
   # plot variables for efficient frontier ----
