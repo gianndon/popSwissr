@@ -39,7 +39,7 @@ r_opt <- function(assets, r_pf, shorting=TRUE, p_year=260){
   # set optimization options
   opts <- list("algorithm"="NLOPT_GN_ISRES",
                "xtol_rel"=1.0e-15,
-               "maxeval"=160000,
+               "maxeval"=40000,
                "local_opts"=list("algorithm"="NLOPT_LD_MMA",
                                 "xtol_rel"=1.0e-15 ),
                "print_level"=0)
